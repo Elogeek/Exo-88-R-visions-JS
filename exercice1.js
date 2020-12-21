@@ -33,5 +33,43 @@ let div3 = document.createElement("div");
 div3.id = "div3";
 document.body.append(div3);
 
-
 let array = [];
+
+if(array.length < 10) {
+    div1.innerHTML = "Entrez au moins 10 valeurs";
+}
+
+button.addEventListener("click", function () {
+    let value = input.value;
+    array.push(value);
+
+    if(array.length === 10) {
+        div1.innerHTML = "Valeur aléatoire: " + array[Math.trunc(Math.random() * array.length)];
+        div2.innerHTML = "Valeur 5: " + array[5];
+    }
+
+    deleteAll.addEventListener("click", function () {
+        div1.innerHTML = "Entrez au moins 10 valeurs";
+        div2.innerHTML = "";
+        div3.innerHTML = "";
+        for(let x = 0; x < array.length; x++) {
+            array.pop();
+        }
+    });
+
+    RandomValue.addEventListener("click", function () {
+        div3.innerHTML = "Valeur aléatoire: " + array[Math.trunc(Math.random() * array.length)];
+    });
+
+    valueAll.addEventListener("click", function () {
+        div3.innerHTML = "";
+        for(let x = 0; x < array.length; x++) {
+            div3.innerHTML += x + " - " + array[x] + "<br>";
+        }
+
+    });
+});
+
+deleteLast.addEventListener("click", function () {
+    array.pop();
+});
