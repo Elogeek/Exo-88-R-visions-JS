@@ -7,9 +7,9 @@ let valueAll = document.createElement("button");
 valueAll.innerHTML = "Toutes les valeur";
 document.body.append(valueAll);
 
-let RandomValue = document.createElement("button");
-document.body.append(RandomValue);
-RandomValue.innerHTML = "Valeur aléatoire";
+let randomValue = document.createElement("button");
+document.body.append(randomValue);
+randomValue.innerHTML = "Valeur aléatoire";
 
 let deleteAll = document.createElement("button");
 deleteAll.innerHTML = "Supprimer tout";
@@ -35,11 +35,8 @@ document.body.append(div3);
 
 let array = [];
 
-if(array.length < 10) {
-    div1.innerHTML = "Entrez au moins 10 valeurs";
-}
-
 button.addEventListener("click", function () {
+
     let value = input.value;
     array.push(value);
 
@@ -48,26 +45,24 @@ button.addEventListener("click", function () {
         div2.innerHTML = "Valeur 5: " + array[5];
     }
 
-    deleteAll.addEventListener("click", function () {
-        div1.innerHTML = "Entrez au moins 10 valeurs";
-        div2.innerHTML = "";
-        div3.innerHTML = "";
-        for(let x = 0; x < array.length; x++) {
-            array.pop();
-        }
-    });
+});
 
-    RandomValue.addEventListener("click", function () {
-        div3.innerHTML = "Valeur aléatoire: " + array[Math.trunc(Math.random() * array.length)];
-    });
+deleteAll.addEventListener("click", function () {
+    div1.innerHTML = "Entrez au moins 10 valeurs";
+    div2.innerHTML = "";
+    div3.innerHTML = "";
+});
 
-    valueAll.addEventListener("click", function () {
-        div3.innerHTML = "";
-        for(let x = 0; x < array.length; x++) {
-            div3.innerHTML += x + " - " + array[x] + "<br>";
-        }
+randomValue.addEventListener("click", function () {
+    div3.innerHTML = "Valeur aléatoire: " + array[Math.trunc(Math.random() * array.length)];
+});
 
-    });
+valueAll.addEventListener("click", function () {
+    div3.innerHTML = "";
+    for(let x = 0; x < array.length; x++) {
+        div3.innerHTML += x + " - " + array[x] + "<br>";
+    }
+
 });
 
 deleteLast.addEventListener("click", function () {
